@@ -23,6 +23,11 @@ const router = createRouter({
       component: () => import("../views/AcessorioView.vue"),
     },
     {
+      path: "/cores",
+      name: "cores",
+      component: () => import("../views/CorView.vue"),
+    },
+    {
       path: "/login",
       name: "login",
       component: LoginView,
