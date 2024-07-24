@@ -4,27 +4,12 @@ import ModelosApi from '@/api/modelos'
 import CategoriasApi from '@/api/categorias'
 import MarcasApi from '@/api/marcas'
 
+const modelosApi = new ModelosApi()
 const marcasApi = new MarcasApi()
-
-const defaultMarca = { id: null, nome: '', nacionalidade: '' }
-const marcas = ref([])
-const marca = reactive({ ...defaultMarca })
-
-onMounted(async () => {
-  marcas.value = await marcasApi.buscarTodasAsMarcas()
-})
-
 const categoriasApi = new CategoriasApi()
 
-const defaultCategoria = { id: null, descricao: '' }
+const marcas = ref([])
 const categorias = ref([])
-const categoria = reactive({ ...defaultCategoria })
-
-onMounted(async () => {
-  categorias.value = await categoriasApi.buscarTodasAsCategorias()
-})
-
-const modelosApi = new ModelosApi()
 
 const defaultModelo = { id: null, nome: '', categoria: '', marca: '' }
 const modelos = ref([])
@@ -32,6 +17,8 @@ const modelo = reactive({ ...defaultModelo })
 
 onMounted(async () => {
   modelos.value = await modelosApi.buscarTodosOsModelos()
+  categorias.value = await categoriasApi.buscarTodasAsCategorias()
+  marcas.value = await marcasApi.buscarTodasAsMarcas()
 })
 
 function limpar() {
