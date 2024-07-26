@@ -7,8 +7,6 @@ export function useLayout() {
     const width = window.innerWidth
     if (width < 768) {
       layout.value = defineAsyncComponent(() => import('@/layouts/LayoutSmall.vue'))
-    } else if (width < 1200) {
-      layout.value = defineAsyncComponent(() => import('@/layouts/LayoutMedium.vue'))
     } else {
       layout.value = defineAsyncComponent(() => import('@/layouts/LayoutLarge.vue'))
     }
