@@ -26,12 +26,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    GARAGEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEM
-  </div>
+ <h1>Garagem</h1>
+ <div>Bem Vindos ao sistema de Garagem</div>
 </template>
 
 <style scoped>
+h1{
+  text-align: center;
+  margin: 20px 0;
+}
 div{
   background-color: #f0f0f0;
   color: #333;

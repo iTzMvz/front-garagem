@@ -76,7 +76,7 @@ async function excluir(id) {
   </div>
   <ul class="lista">
     <li class="item" v-for="veiculo in veiculos" :key="veiculo.id">
-      <span @click="editar(veiculo)"> ({{ veiculo.id }}) - {{ veiculo.nome }} - </span>
+      <span @click="editar(veiculo)"> ({{ veiculo.id }}) - {{ veiculo.modelo }} - {{ veiculo.cor }} </span>
       <button class="excluir" @click="excluir(veiculo.id)">X</button>
     </li>
   </ul>
