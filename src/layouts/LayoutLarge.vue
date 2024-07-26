@@ -1,6 +1,5 @@
 <script setup>
 import LargeHeader from '@/components/templates/large/LargeHeader.vue'
-import LargeFooter from '@/components/templates/large/LargeFooter.vue'
 </script>
 <template>
   <div id="layout-large">
@@ -10,9 +9,6 @@ import LargeFooter from '@/components/templates/large/LargeFooter.vue'
     <main>
       <router-view />
     </main>
-    <footer>
-      <large-footer />
-    </footer>
   </div>
 </template>
 <style scoped>
