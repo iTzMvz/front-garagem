@@ -52,35 +52,85 @@ async function excluir(id) {
 </script>
 
 <template>
-  <h1>Veículo</h1>
-  <hr />
+  <h1 class="tittle">Veículo</h1>
   <div class="form">
-    <input type="number" v-model="veiculo.ano" placeholder="Ano">
-    <input type="number" v-model="veiculo.preco" placeholder="Preço">
-    <select v-model="veiculo.modelo">
+    <input class="input" type="number" v-model="veiculo.ano" placeholder="Ano">
+    <input class="input" type="number" v-model="veiculo.preco" placeholder="Preço">
+    <select class="seleciona" v-model="veiculo.modelo">
         <option value="" selected disabled>Modelo</option>
         <option v-for="modelo in modelos" :key="modelo.id" :value="modelo.id">{{ modelo.nome }}</option>
     </select>
-    <select v-model="veiculo.cor">
+    <select class="seleciona" v-model="veiculo.cor">
         <option value="" selected disabled>Cor</option>
         <option v-for="cor in cores" :key="cor.id" :value="cor.id">{{ cor.descricao }}</option>
     </select>
-    <select v-model="veiculo.acessorios" multiple>
+    <select class="seleciona selec-varios" v-model="veiculo.acessorios" multiple>
         <option value="" selected disabled>Acessorios</option>
         <option v-for="acessorio in acessorios" :key="acessorio.id" :value="acessorio.id">{{ acessorio.descricao }}</option>
     </select>
-    <button @click="salvar">Salvar</button>
-    <button @click="limpar">Limpar</button>
+    <button class="botao" @click="salvar">Salvar</button>
+    <button class="botao" @click="limpar">Limpar</button>
   </div>
-  <hr />
-  <ul>
-    <li v-for="veiculo in veiculos" :key="veiculo.id">
+  <ul class="lista">
+    <li class="item" v-for="veiculo in veiculos" :key="veiculo.id">
       <span @click="editar(veiculo)">
         ({{ veiculo.id }}) - {{ veiculo.nome }} -
       </span>
-      <button @click="excluir(veiculo.id)">X</button>
+      <button class="excluir" @click="excluir(veiculo.id)">X</button>
     </li>
   </ul>
 </template>
 
-<style></style>
+<style scoped>
+  .tittle {
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  .input {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .botao {
+    margin: 5px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lista {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+  }
+
+  .excluir {
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+  .seleciona {
+    margin: 5px;
+    padding: 5px;
+  }
+  .selec-varios {
+    height: 50px;
+  }
+
+</style>

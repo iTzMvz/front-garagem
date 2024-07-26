@@ -37,22 +37,65 @@ async function excluir(id) {
 </script>
 
 <template>
-  <h1>Categoria</h1>
-  <hr />
+  <h1 class="tittle">Categoria</h1>
   <div class="form">
-    <input type="text" v-model="categoria.descricao" placeholder="Descrição" />
-    <button @click="salvar">Salvar</button>
-    <button @click="limpar">Limpar</button>
+    <input class="input" type="text" v-model="categoria.descricao" placeholder="Descrição" />
+    <button class="botao" @click="salvar">Salvar</button>
+    <button class="botao" @click="limpar">Limpar</button>
   </div>
-  <hr />
-  <ul>
-    <li v-for="categoria in categorias" :key="categoria.id">
+
+  <ul class="lista">
+    <li class="item" v-for="categoria in categorias" :key="categoria.id">
       <span @click="editar(categoria)">
         ({{ categoria.id }}) - {{ categoria.descricao }} -
       </span>
-      <button @click="excluir(categoria.id)">X</button>
+      <button class="excluir" @click="excluir(categoria.id)">X</button>
     </li>
   </ul>
 </template>
 
-<style></style>
+<style scoped>
+  .tittle {
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  .input {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .botao {
+    margin: 5px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lista {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+  }
+
+  .excluir {
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+</style>

@@ -47,32 +47,80 @@ async function excluir(id) {
 </script>
 
 <template>
-  <h1>Modelo</h1>
-  <hr />
+  <h1 class="tittle">Modelo</h1>
   <div class="form">
-    <input type="text" v-model="modelo.nome" placeholder="Nome" />
-    <select v-model="modelo.categoria">
+    <input class="input" type="text" v-model="modelo.nome" placeholder="Nome" />
+    <select class="seleciona" v-model="modelo.categoria">
       <option value="" selected disabled>Categorias</option>
       <option v-for="categoria in categorias" :key="categoria.id" :value="categoria.id">
         {{ categoria.descricao }}
       </option>
     </select>
-    <select v-model="modelo.marca">
+    <select class="seleciona" v-model="modelo.marca">
       <option value="" selected disabled>Marcas</option>
       <option v-for="marca in marcas" :key="marca.id" :value="marca.id">
         {{ marca.nome }}
       </option>
     </select>
-    <button @click="salvar">Salvar</button>
-    <button @click="limpar">Limpar</button>
+    <button class="botao" @click="salvar">Salvar</button>
+    <button class="botao" @click="limpar">Limpar</button>
   </div>
   <hr />
-  <ul>
-    <li v-for="modelo in modelos" :key="modelo.id">
+  <ul class="lista">
+    <li class="item" v-for="modelo in modelos" :key="modelo.id">
       <span @click="editar(modelo)"> ({{ modelo.id }}) - {{ modelo.nome }} - </span>
-      <button @click="excluir(modelo.id)">X</button>
+      <button class="excluir" @click="excluir(modelo.id)">X</button>
     </li>
   </ul>
 </template>
 
-<style></style>
+<style scoped>
+  .tittle {
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  .input {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .botao {
+    margin: 5px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lista {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+  }
+
+  .excluir {
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+  .seleciona {
+    margin: 5px;
+    padding: 5px;
+    background-color: #e0dddd;
+  }
+</style>

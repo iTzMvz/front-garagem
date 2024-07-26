@@ -9,4 +9,4 @@ import "@passageidentity/passage-elements/passage-auth";
   </div>
 </template>
 
-<style></style>
+<style scoped></style>

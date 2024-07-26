@@ -16,4 +16,4 @@ onMounted(() => {
   <h1>Logging out..</h1>
 </template>
 
-<style></style>
+<style scoped></style>
