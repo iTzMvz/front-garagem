@@ -86,6 +86,7 @@ async function excluir(id) {
   .input {
     margin: 5px;
     padding: 5px;
+    border-radius: 5px;
   }
 
   .botao {
@@ -95,6 +96,7 @@ async function excluir(id) {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   .lista {
@@ -121,6 +123,6 @@ async function excluir(id) {
   .seleciona {
     margin: 5px;
     padding: 5px;
-    background-color: #e0dddd;
+    border-radius: 5px;
   }
 </style>

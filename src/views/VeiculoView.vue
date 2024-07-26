@@ -88,20 +88,25 @@ async function excluir(id) {
   .form {
     display: flex;
     justify-content: center;
+    align-items: end;
     margin: 10px;
   }
   .input {
+    height: 30px;
     margin: 5px;
     padding: 5px;
+    border-radius: 5px;
   }
 
   .botao {
     margin: 5px;
     padding: 5px;
+    border-radius: 5px;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    height: 30px;
   }
 
   .lista {
@@ -128,6 +133,8 @@ async function excluir(id) {
   .seleciona {
     margin: 5px;
     padding: 5px;
+    border-radius: 5px;
+    height: 30px;
   }
   .selec-varios {
     height: 50px;
