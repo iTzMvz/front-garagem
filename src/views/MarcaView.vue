@@ -1,38 +1,38 @@
 <script setup>
-import { ref, reactive, onMounted } from "vue";
-import MarcasApi from "@/api/marcas";
-const marcasApi = new MarcasApi();
+import { ref, reactive, onMounted } from 'vue'
+import MarcasApi from '@/api/marcas'
+const marcasApi = new MarcasApi()
 
-const defaultMarca = { id: null, nome: "", nacionalidade: "" };
-const marcas = ref([]);
-const marca = reactive({ ...defaultMarca });
+const defaultMarca = { id: null, nome: '', nacionalidade: '' }
+const marcas = ref([])
+const marca = reactive({ ...defaultMarca })
 
 onMounted(async () => {
-    marcas.value = await marcasApi.buscarTodasAsMarcas();
-});
+  marcas.value = await marcasApi.buscarTodasAsMarcas()
+})
 
 function limpar() {
-  Object.assign(marca, { ...defaultMarca});
+  Object.assign(marca, { ...defaultMarca })
 }
 
 async function salvar() {
   if (marca.id) {
-    await marcasApi.atualizarMarca(marca);
+    await marcasApi.atualizarMarca(marca)
   } else {
-    await marcasApi.adicionarMarca(marca);
+    await marcasApi.adicionarMarca(marca)
   }
-  marcas.value = await marcasApi.buscarTodasAsMarcas();
-  limpar();
+  marcas.value = await marcasApi.buscarTodasAsMarcas()
+  limpar()
 }
 
 function editar(marca_para_editar) {
-  Object.assign(marca, marca_para_editar);
+  Object.assign(marca, marca_para_editar)
 }
 
 async function excluir(id) {
-  await marcasApi.excluirMarca(id);
-  marcas.value = await marcasApi.buscarTodasAsMarcas();
-  limpar();
+  await marcasApi.excluirMarca(id)
+  marcas.value = await marcasApi.buscarTodasAsMarcas()
+  limpar()
 }
 </script>
 
@@ -54,51 +54,57 @@ async function excluir(id) {
   </ul>
 </template>
 
-
 <style scoped>
-  .tittle {
-    text-align: center;
-  }
+.tittle {
+  text-align: center;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.botao {
+  margin: 5px;
+  padding: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lista {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+}
+
+.excluir {
+  background-color: #f44336;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+@media screen and (max-width: 768px) {
   .form {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+    flex-direction: column;
+    width: 30vw;
+    margin: auto;
   }
-  .input {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
-  .botao {
-    margin: 5px;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  .lista {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ddd;
-  }
-
-  .excluir {
-    background-color: #f44336;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-  }
+}
 </style>

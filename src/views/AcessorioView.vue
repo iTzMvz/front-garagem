@@ -99,4 +99,12 @@ async function excluir(id) {
     width: 30px;
     height: 30px;
   }
+  @media screen and (max-width: 768px) {
+    .form{
+      flex-direction: column;
+      width: 30vw;
+      margin: auto;
+    }
+    
+  }
 </style>

@@ -75,54 +75,61 @@ async function excluir(id) {
 </template>
 
 <style scoped>
-  .tittle {
-    text-align: center;
-  }
-  .form {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-  }
-  .input {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-
-  .botao {
-    margin: 5px;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  .lista {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ddd;
-  }
-
-  .excluir {
-    background-color: #f44336;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
+.tittle {
+  text-align: center;
 }
-  .seleciona {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.botao {
+  margin: 5px;
+  padding: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lista {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+}
+
+.excluir {
+  background-color: #f44336;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.seleciona {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+@media screen and (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    width: 30vw;
+    margin: auto;
   }
+}
 </style>
